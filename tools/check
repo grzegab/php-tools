@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd data &&
+php -d pcov.enabled ../phpunit/vendor/bin/phpunit &&
+../php-cs-fixer/vendor/bin/php-cs-fixer --dry-run --allow-risky=yes --diff --no-interaction --ansi --using-cache=no fix src &&
+../phpstan/vendor/bin/phpstan --memory-limit=512M analyze src

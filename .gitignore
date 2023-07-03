@@ -1,0 +1,4 @@
+/tools/php-cs-fixer/vendor/
+/tools/phpstan/vendor/
+/tools/phpunit/vendor/
+/tools/rector/vendor/
