@@ -17,6 +17,8 @@ WORKDIR /app
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV PHP_MEMORY_LIMIT=512M
 
+RUN pecl install pcov && docker-php-ext-enable pcov
+
 RUN echo '[X] INSTALL tools' \
     && composer install --working-dir=php-cs-fixer \
     && composer install --working-dir=phpstan \
