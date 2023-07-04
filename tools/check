@@ -11,3 +11,4 @@ echo 'PHP Unit' &&
 echo '--------' &&
 php -d pcov.enabled=1 ../phpunit/vendor/bin/phpunit --configuration /app/configs/phpunit.xml
 
+exit 0

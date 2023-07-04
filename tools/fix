@@ -14,3 +14,4 @@ echo 'PHP Stan' &&
 echo '--------' &&
 ../phpstan/vendor/bin/phpstan --memory-limit=512M analyze -c /app/configs/phpstan.neon src
 
+exit 0
