@@ -1,0 +1,19 @@
+includes:
+  - phar://phpstan.phar/conf/bleedingEdge.neon
+
+parameters:
+  parallel:
+    maximumNumberOfProcesses: 1
+  excludePaths:
+    - tests/tmp/*
+    - tests/*/Example*.php
+    - tests/*/console_application_loader.php
+    - tests/*/data/*
+    - src/Kernel.php
+  paths:
+    - src
+  ignoreErrors:
+    - '#Property App\\Infrastructure\\Doctrine\\Entity\\References\\Bp24[:a-zA-Z0-9\$]* is never written, only read.#'
+
+  # The level 8 is the highest level
+  level: 8

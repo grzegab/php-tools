@@ -1,6 +1,7 @@
 #!/bin/sh
 
 cd data &&
-../rector/vendor/bin/rector process src &&
-../php-cs-fixer/vendor/bin/php-cs-fixer --diff --no-interaction --ansi --using-cache=no fix src &&
-../phpstan/vendor/bin/phpstan --memory-limit=512M analyze src
+../rector/vendor/bin/rector process --config=/app/configs/rector.php src &&
+../rector/vendor/bin/rector process --config=/app/configs/rector.php tests &&
+../php-cs-fixer/vendor/bin/php-cs-fixer fix --diff --no-interaction --ansi --using-cache=no --config=/app/configs/.php-cs-fixer.php src  &&
+../phpstan/vendor/bin/phpstan --memory-limit=512M analyze -c /app/configs/phpstan.neon src
