@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd data &&
+cd /app/datadata &&
 echo 'CS Fixer' &&
 echo '--------' &&
 ../php-cs-fixer/vendor/bin/php-cs-fixer --dry-run --allow-risky=yes --diff --no-interaction --ansi --using-cache=no --config=/app/configs/.php-cs-fixer.php fix src &&

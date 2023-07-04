@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd data &&
+cd /app/data &&
 echo 'Rector source code' &&
 echo '------------------' &&
 ../rector/vendor/bin/rector process --config=/app/configs/rector.php src &&
