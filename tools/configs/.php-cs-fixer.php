@@ -7,8 +7,8 @@ if (!file_exists('/app/data/src')) {
 return (new PhpCsFixer\Config())
     ->setRules([
         '@PSR12' => true,
-        '@PHP71Migration' => true,
-        '@PHPUnit75Migration:risky' => true,
+        '@PHP82Migration' => true,
+        '@PHPUnit100Migration:risky' => true,
         '@Symfony' => true,
         '@Symfony:risky' => true,
         'protected_to_private' => false,
