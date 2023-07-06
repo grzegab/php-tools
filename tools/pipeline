@@ -1,13 +1,33 @@
 #!/bin/bash
 
-cd /opt/atlassian/pipelines/agent/build/ &&
 echo 'CS Fixer' &&
-echo '--------' &&
-/app/php-cs-fixer/vendor/bin/php-cs-fixer --dry-run --allow-risky=yes --diff --no-interaction --ansi --using-cache=no --config=/app/configs/.php-cs-fixer.php fix src &&
+echo '--------'
+
+if ! (/app/php-cs-fixer/vendor/bin/php-cs-fixer --dry-run --allow-risky=yes --diff --no-interaction --ansi --using-cache=no --config=/app/configs/.php-cs-fixer.pipeline.php fix /opt/atlassian/pipelines/agent/build/src)
+then
+        echo "CS FIXER failed"
+        echo "---------------"
+        exit 1
+fi
+
 echo 'PHP Stan' &&
-echo '--------' &&
-/app/phpstan/vendor/bin/phpstan --memory-limit=512M analyze -c /app/configs/phpstan.neon src &&
+echo '--------'
+
+if ! (/app/phpstan/vendor/bin/phpstan --memory-limit=512M analyze -c /app/configs/phpstan.neon /opt/atlassian/pipelines/agent/build/src)
+then
+        echo "PHPSTAN failed"
+        echo "--------------"
+        exit 1
+fi
+
 echo 'PHP Unit' &&
-echo '--------' &&
-php -d pcov.enabled=1 /app/phpunit/vendor/bin/phpunit --configuration /app/configs/phpunit-pipeline.xml &&
+echo '--------'
+
+if ! (php -d pcov.enabled=1 /app/phpunit/vendor/bin/phpunit --configuration /app/configs/phpunit-pipeline.xml)
+then
+        echo "PHPUnit failed"
+        echo "--------------"
+        exit 1
+fi
+
 exit 0

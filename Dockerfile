@@ -29,5 +29,3 @@ RUN echo '[X] Prepare exe files' \
     && chmod +x check \
     && chmod +x pipeline \
     && chmod +x fix
-
-RUN rm -rf /var/lib/apt/lists/*
