@@ -12,6 +12,5 @@ echo '--------' &&
 ../php-cs-fixer/vendor/bin/php-cs-fixer fix --diff --no-interaction --ansi --using-cache=no --config=/app/configs/.php-cs-fixer.php src  &&
 echo 'PHP Stan' &&
 echo '--------' &&
-../phpstan/vendor/bin/phpstan --memory-limit=512M analyze -c /app/configs/phpstan.neon src
-
+../phpstan/vendor/bin/phpstan --memory-limit=512M analyze -c /app/configs/phpstan.neon src &&
 exit 0

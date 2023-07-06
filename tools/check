@@ -9,6 +9,5 @@ echo '--------' &&
 ../phpstan/vendor/bin/phpstan --memory-limit=512M analyze -c /app/configs/phpstan.neon src
 echo 'PHP Unit' &&
 echo '--------' &&
-php -d pcov.enabled=1 ../phpunit/vendor/bin/phpunit --configuration /app/configs/phpunit.xml
-
+php -d pcov.enabled=1 ../phpunit/vendor/bin/phpunit --configuration /app/configs/phpunit.xml &&
 exit 0
