@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd /opt/atlassian/pipelines/agent/build/ &&
+echo 'CS Fixer' &&
+echo '--------' &&
+/app/php-cs-fixer/vendor/bin/php-cs-fixer --dry-run --allow-risky=yes --diff --no-interaction --ansi --using-cache=no --config=/app/configs/.php-cs-fixer.php fix src &&
+echo 'PHP Stan' &&
+echo '--------' &&
+/app/phpstan/vendor/bin/phpstan --memory-limit=512M analyze -c /app/configs/phpstan.neon src
+echo 'PHP Unit' &&
+echo '--------' &&
+php -d pcov.enabled=1 ../phpunit/vendor/bin/phpunit --configuration /app/configs/phpunit.xml
+
+exit 0
