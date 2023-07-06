@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd" colors="true" bootstrap="/opt/atlassian/pipelines/agent/build//tests/bootstrap.php" cacheDirectory=".phpunit.cache">
+  <php>
+    <ini name="display_errors" value="1"/>
+    <ini name="error_reporting" value="-1"/>
+    <server name="APP_ENV" value="test" force="true"/>
+    <server name="APP_DEBUG" value="false"/>
+    <server name="SHELL_VERBOSITY" value="-1"/>
+    <server name="SYMFONY_PHPUNIT_REMOVE" value=""/>
+    <server name="SYMFONY_PHPUNIT_VERSION" value="10.1"/>
+    <server name="KERNEL_CLASS" value="App\Kernel"/>
+  </php>
+  <testsuites>
+    <testsuite name="Project Test Suite">
+      <directory>/opt/atlassian/pipelines/agent/build/tests</directory>
+    </testsuite>
+  </testsuites>
+  <coverage>
+    <report>
+      <clover outputFile=".build/reports/coverage-report.xml"/>
+    </report>
+  </coverage>
+  <!--    <listeners>-->
+  <!--        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />-->
+  <!--    </listeners>-->
+  <!-- Run `composer require symfony/panther` before enabling this extension -->
+  <!--
+    <extensions>
+        <extension class="Symfony\Component\Panther\ServerExtension" />
+    </extensions>
+    -->
+  <logging>
+    <junit outputFile=".build/reports/tests-report.xml"/>
+  </logging>
+  <source>
+    <include>
+      <directory suffix=".php">/opt/atlassian/pipelines/agent/build/src</directory>
+    </include>
+    <exclude>
+      <directory suffix=".php">/opt/atlassian/pipelines/agent/build/tests</directory>
+      <directory suffix=".php">/opt/atlassian/pipelines/agent/build/src/Command</directory>
+      <directory suffix=".php">/opt/atlassian/pipelines/agent/build/src/Controller</directory>
+      <directory suffix=".php">/opt/atlassian/pipelines/agent/build/src/Infrastructure/Doctrine/Entity</directory>
+      <directory suffix=".php">/opt/atlassian/pipelines/agent/build/src/Infrastructure/Doctrine/Repository</directory>
+      <directory suffix=".php">/opt/atlassian/pipelines/agent/build/src/Application/Dto</directory>
+      <directory suffix=".php">/opt/atlassian/pipelines/agent/build/src/Application/Exception</directory>
+      <directory suffix=".php">/opt/atlassian/pipelines/agent/build/src/Domain/Specification</directory>
+      <file>src/Kernel.php</file>
+    </exclude>
+  </source>
+</phpunit>
