@@ -13,6 +13,7 @@ return (new PhpCsFixer\Config())
         '@Symfony:risky' => true,
         'protected_to_private' => false,
         'nullable_type_declaration_for_default_null_value' => ['use_nullable_type_declaration' => false],
+        'fully_qualified_strict_types' => true,
     ])
     ->setRiskyAllowed(true)
     ->setFinder(
