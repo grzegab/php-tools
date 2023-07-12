@@ -18,7 +18,7 @@
   </testsuites>
   <coverage>
     <report>
-      <clover outputFile=".build/reports/coverage-report.xml"/>
+      <clover outputFile="/app/data/.build/reports/coverage-report.xml"/>
     </report>
   </coverage>
   <!--    <listeners>-->
@@ -31,7 +31,7 @@
     </extensions>
     -->
   <logging>
-    <junit outputFile=".build/reports/tests-report.xml"/>
+    <junit outputFile="/app/data/.build/reports/tests-report.xml"/>
   </logging>
   <source>
     <include>

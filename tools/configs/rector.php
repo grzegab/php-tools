@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
 use Rector\CodeQuality\Rector\Foreach_\ForeachToInArrayRector;
+use Rector\CodeQuality\Rector\Identical\FlipTypeControlToUseExclusiveTypeRector;
 use Rector\CodingStyle\Rector\ClassMethod\NewlineBeforeNewAssignSetRector;
 use Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector;
 use Rector\Config\RectorConfig;
@@ -54,6 +55,7 @@ return static function (RectorConfig $rectorConfig): void {
         AttributeKeyToClassConstFetchRector::class,
         CountOnNullRector::class,
         FinalizeClassesWithoutChildrenRector::class,
+        FlipTypeControlToUseExclusiveTypeRector::class,
         ForeachToInArrayRector::class,
         NewlineAfterStatementRector::class,
         NewlineBeforeNewAssignSetRector::class,

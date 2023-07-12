@@ -6,9 +6,14 @@ if (!file_exists('/app/data/src')) {
 
 return (new PhpCsFixer\Config())
     ->setRules([
-        '@PSR12' => true,
+        '@DoctrineAnnotation' => true,
         '@PHP82Migration' => true,
         '@PHPUnit100Migration:risky' => true,
+        '@PSR12' => true,
+        '@PSR12:risky' => true,
+        '@PSR2' => true,
+        '@PhpCsFixer' => true,
+        '@PhpCsFixer:risky' => true,
         '@Symfony' => true,
         '@Symfony:risky' => true,
         'protected_to_private' => false,

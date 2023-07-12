@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd" colors="true" bootstrap="/opt/atlassian/pipelines/agent/build//tests/bootstrap.php" cacheDirectory=".phpunit.cache">
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd" colors="true" bootstrap="/opt/atlassian/pipelines/agent/build/tests/bootstrap.php" cacheDirectory="/opt/atlassian/pipelines/agent/build/.phpunit.cache">
   <php>
     <ini name="display_errors" value="1"/>
     <ini name="error_reporting" value="-1"/>
@@ -18,7 +18,7 @@
   </testsuites>
   <coverage>
     <report>
-      <clover outputFile=".build/reports/coverage-report.xml"/>
+      <clover outputFile="/opt/atlassian/pipelines/agent/build/.build/reports/coverage-report.xml"/>
     </report>
   </coverage>
   <!--    <listeners>-->
@@ -31,7 +31,7 @@
     </extensions>
     -->
   <logging>
-    <junit outputFile=".build/reports/tests-report.xml"/>
+    <junit outputFile="/opt/atlassian/pipelines/agent/build/.build/reports/tests-report.xml"/>
   </logging>
   <source>
     <include>
